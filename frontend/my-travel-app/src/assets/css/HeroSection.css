@@ -1,0 +1,74 @@
+.hero-bg {
+    background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20travel%20destinations%20collage%20with%20beach%2C%20mountains%2C%20and%20city%20skyline.&width=1200&height=500&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.8), transparent);
+}
+
+.hero-section {
+    background-color: #f0f6fd;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+.hero-description {
+    font-size: 16px;
+    color: #4b5563;
+    margin-bottom: 24px;
+}
+
+.hero-button {
+    background-color: #3b82f6;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #2563eb;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.hero-image {
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}

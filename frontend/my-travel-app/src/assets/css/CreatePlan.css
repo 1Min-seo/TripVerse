@@ -1,0 +1,243 @@
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.trip-meta input {
+    margin: 10px;
+    padding: 8px;
+}
+.day-box {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.place-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.place-box input {
+    flex: 1;
+    padding: 6px;
+}
+button {
+    padding: 6px 12px;
+}
+.map-info {
+    margin-top: 20px;
+}
+.map-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.trip-form {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.form-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1f2937;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.date-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group label,
+.date-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.trip-duration {
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.trip-duration span {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.days-section {
+    padding-right: 1rem;
+}
+
+.day-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.day-box h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+
+.day-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/*.plan-time {*/
+/*    font-size: 0.9rem;*/
+/*    font-weight: 500;*/
+/*    margin-right: 1rem;*/
+/*}*/
+
+/* CSS */
+.time-memo {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.time-memo-item {
+    margin-left: 50px;
+    border:1px solid blue;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.time-memo-item textarea {
+    width: 480px;
+    height: 30px;
+    resize: vertical;
+    min-height: 60px;
+    border:1px solid red;
+}
+
+.plan-text {
+    border: 1px solid green;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.add-plan {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.add-plan input[type="time"], .add-plan input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.add-plan button {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.day-box > button {
+    padding: 0.5rem 1rem;
+    background-color: #ef4444;
+    margin-bottom: 1rem;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+
+.map-placeholder {
+    border: 2px dashed #60a5fa;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    background-color: #f0f9ff;
+    text-align: center;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.save-button {
+    margin-top: 3rem;
+    background: #3b82f6;
+    color: white;
+    padding: 0.85rem 2.2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-button:hover {
+    background-color: #2563eb;
+}

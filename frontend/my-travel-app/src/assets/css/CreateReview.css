@@ -1,0 +1,208 @@
+.review-form {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.review-form-header {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 36px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.review-form-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+}
+
+.review-form-main {
+    flex-grow: 1;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.form-group {
+    margin-bottom: 36px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 90%;
+    padding: 18px 22px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    line-height: 2.5;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group .char-count {
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating i {
+    font-size: 38px;
+    color: #ccc;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.rating i.active {
+    color: #ffb300;
+    transform: scale(1.1);
+}
+
+.rating i:hover {
+    color: #ff9800;
+}
+
+.rating span {
+    margin-left: 14px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.form-buttons button {
+    padding: 16px 36px;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.form-buttons button:first-child {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.form-buttons button:first-child:hover {
+    background-color: #e0e0e0;
+}
+
+.form-buttons button:last-child {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.form-buttons button:last-child:hover {
+    background-color: #0056b3;
+}
+
+.review-form-footer {
+    background-color: white;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 24px;
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 50px;
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.photo-upload {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload-label i {
+    font-size: 24px;
+    color: #666;
+}
+
+.preview-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photo-upload:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+}
+
+.photo-upload i {
+    font-size: 38px;
+    color: #aaa;
+}
+
+.photo-upload input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.photo-info {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #999;
+}

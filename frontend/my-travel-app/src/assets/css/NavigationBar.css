@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.rounded-button {
+    border-radius: 9999px;
+}
+
+.navigation-bar {
+    background-color: #fff;
+    padding: 16px 32px;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3a86ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: #ff006e;
+    transform: scale(1.05);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 24px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.nav-links a {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #1a73e8;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.login-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.signup-btn {
+    background-color: #4f7dfd;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background-color: #3d67e4;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn, .logout-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background-color: #f44336;
+}

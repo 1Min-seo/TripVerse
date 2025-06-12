@@ -1,0 +1,145 @@
+.review-detail-container {
+    padding: 2rem 0;
+}
+
+.review-detail {
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    max-width: 1000px;
+    min-height: 600px;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-top: 1rem;
+}
+
+button.text-gray-600 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: #6b7280;
+    margin-left:-10px;
+}
+
+button.text-gray-600:hover {
+    color: #4f46e5;
+}
+
+.text-yellow-400 i {
+    color: #fbbf24;
+    margin-right: 0.2rem;
+}
+
+.text-gray-500 {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: -15px;
+}
+
+.like-button i {
+    font-size: 18px;
+    color: #ef4444;
+}
+
+.like-button span {
+    font-size: 16px;
+    color: #374151;
+    margin-left: 6px;
+}
+
+.like-button:hover i {
+    color: #dc2626; /* hover 시 더 진한 빨간색 */
+}
+
+
+/* 슬라이더 */
+.glide__slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.glide__bullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.glide__bullet {
+    background-color: #d1d5db;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+}
+
+.glide__bullet:hover {
+    background-color: #6b7280;
+}
+
+.edit-button, .delete-button {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #3b82f6;
+    color: white;
+    margin-left:-3px;
+}
+
+.delete-button {
+    background-color: #ef4444;
+    color: white;
+    margin-left:10px;
+}
+
+.edit-button:hover {
+    background-color: #2563eb;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
+}
+.scrap-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left:-20px;
+}
+
+.scrap-button i {
+    color: #facc15;
+    transition: color 0.2s ease-in-out;
+}
+
+.scrap-button:hover i {
+    color: #eab308;
+}
