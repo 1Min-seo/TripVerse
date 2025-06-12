@@ -71,6 +71,7 @@ public class User implements UserDetails {
         return this;
     }
 
+
     public List<Review> getLikedReviews() {
         return this.hearts.stream()
                 .map(Heart::getReview)

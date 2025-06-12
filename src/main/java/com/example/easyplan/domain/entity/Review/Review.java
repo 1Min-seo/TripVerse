@@ -39,7 +39,7 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "review")
+    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Heart> hearts = new ArrayList<>();
 
     private Review(User user, String title, String content, int rating, List<String> imageUrls) {

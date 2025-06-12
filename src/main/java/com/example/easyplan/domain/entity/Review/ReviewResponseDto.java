@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ReviewResponseDto extends BaseEntity {
+public class ReviewResponseDto {
     private Long id;
     private String title;
     private String content;

@@ -1,16 +1,25 @@
-//package com.example.easyplan.domain.entity.Heart;
-//
-//import com.example.easyplan.domain.entity.Review.ReviewResponseDto;
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//
-//import java.util.List;
-//
-//@Data
-//@AllArgsConstructor
-//public class HeartResponseDto {
-//    private List<ReviewResponseDto> likedReviews;
-//    private Long totalElements;
-//    private int totalPages;
-//    private int currentPage;
-//}
+package com.example.easyplan.domain.entity.Heart;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
+@AllArgsConstructor
+public class HeartResponseDto {
+    private Long userId;
+    private Long reviewId;
+    private Boolean isLiked;
+    private int heartCount;
+
+    public static HeartResponseDto from(Heart heart, boolean isLiked, int heartCount) {
+        return new HeartResponseDto(
+                heart.getUser().getId(),
+                heart.getReview().getId(),
+                isLiked,
+                heartCount
+        );
+    }
+
+}

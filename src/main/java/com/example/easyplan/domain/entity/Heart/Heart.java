@@ -10,6 +10,9 @@ import lombok.Setter;
 
 
 @Entity
+@Table(name = "hearts", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"user_id", "review_id"})
+})
 @RequiredArgsConstructor
 @Getter @Setter
 public class Heart extends BaseEntity {
@@ -28,6 +31,4 @@ public class Heart extends BaseEntity {
         this.user = user;
         this.review = review;
     }
-
-
 }

@@ -9,13 +9,22 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface HeartRepository extends JpaRepository<Heart, Long> {
     int countByReviewId(Long reviewId);
 
-    @Query("SELECT h.review FROM Heart h GROUP BY h.review ORDER BY COUNT(h.id) DESC")
+    @Query("SELECT h.review FROM Heart h GROUP BY h.review.id ORDER BY COUNT(h.id) DESC")
     List<Review> findTopLikedReviews(Pageable pageable);
 
     List<Heart> findByUser(User user);
+
+    Optional<Heart> findByUserAndReview(User user, Review review);
+
+    Boolean existsByUserIdAndReviewId(Long userId, Long reviewId);
+
+    Optional<Heart> findFirstByUserAndReview(User user, Review review);
+
+    List<Heart> findByUserId(Long userId);
 }

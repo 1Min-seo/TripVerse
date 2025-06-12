@@ -4,7 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d72d79-698f-46ea-8c17-8bfc641e07d9" name="Changes" comment="" />
+    <list default="true" id="a0d72d79-698f-46ea-8c17-8bfc641e07d9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f23d25f-c401-4b80-b77e-219c52d91993.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f23d25f-c401-4b80-b77e-219c52d91993/storage_v2/_src_/schema/tripverse.MNSD6Q.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/TripVerseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/TripVerseApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisCacheConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisCacheConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/ReviewRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/ReviewRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/BaseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/Heart.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/Heart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/User/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/repository/HeartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/repository/HeartRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/service/HeartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/service/HeartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HeartService.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/assets/css/MyPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/assets/css/MyPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/components/MyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/components/MyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/components/ReviewDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/components/ReviewDetails.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/TripVerseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/TripVerseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisCacheConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/controller/HeartRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/HeartResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/ReviewResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/ReviewResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/repository/HeartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/repository/HeartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/service/HeartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/service/HeartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,13 +93,13 @@
         <option value="Vue Options API Component" />
         <option value="CSS File" />
         <option value="Vue Composition API Component" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend/my-travel-app" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -146,19 +191,6 @@
           <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
         </ENTRIES>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="trip-verse" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="trip-verse" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -362,7 +394,19 @@
       <workItem from="1747726378073" duration="11997000" />
       <workItem from="1747750323184" duration="102000" />
       <workItem from="1747750920576" duration="281000" />
-      <workItem from="1747751226884" duration="1586000" />
+      <workItem from="1747751226884" duration="4504000" />
+      <workItem from="1747756038502" duration="598000" />
+      <workItem from="1747787297155" duration="7671000" />
+      <workItem from="1747803975650" duration="9346000" />
+      <workItem from="1747893768272" duration="8305000" />
+      <workItem from="1747923662614" duration="1266000" />
+      <workItem from="1748079103642" duration="6405000" />
+      <workItem from="1748694919568" duration="2752000" />
+      <workItem from="1748932247604" duration="3853000" />
+      <workItem from="1749213042604" duration="12121000" />
+      <workItem from="1749388791682" duration="3913000" />
+      <workItem from="1749466026974" duration="3342000" />
+      <workItem from="1749704396631" duration="15080000" />
     </task>
     <servers />
   </component>
