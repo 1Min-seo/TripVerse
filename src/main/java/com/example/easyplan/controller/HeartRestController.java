@@ -39,7 +39,7 @@ public class HeartRestController {
     }
 
     @GetMapping("/reviews/likes/top")
-    public ResponseEntity<List<ReviewResponseDto>> getTopLikedReviews(@RequestParam(defaultValue = "3") int limit) {
+    public ResponseEntity<List<ReviewResponseDto>> getTopLikedReviews(@RequestParam(defaultValue = "6") int limit) {
         List<ReviewResponseDto> topReviews = heartService.getTopLikedReviews(limit);
 
         return ResponseEntity.ok(topReviews);

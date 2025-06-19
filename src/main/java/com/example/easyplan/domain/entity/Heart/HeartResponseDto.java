@@ -8,18 +8,15 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class HeartResponseDto {
-    private Long userId;
+    //private Long userId;
     private Long reviewId;
     private Boolean isLiked;
     private int heartCount;
 
-    public static HeartResponseDto from(Heart heart, boolean isLiked, int heartCount) {
-        return new HeartResponseDto(
-                heart.getUser().getId(),
-                heart.getReview().getId(),
-                isLiked,
-                heartCount
-        );
+    public HeartResponseDto (Long reviewId, boolean isLiked, int heartCount) {
+        this.reviewId = reviewId;
+        this.isLiked = isLiked;
+        this.heartCount = heartCount;
     }
 
 }

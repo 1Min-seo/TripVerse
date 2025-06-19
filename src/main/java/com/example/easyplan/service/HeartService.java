@@ -1,5 +1,6 @@
 package com.example.easyplan.service;
 
+import com.example.easyplan.config.RedisKeyUtil;
 import com.example.easyplan.domain.entity.Heart.Heart;
 import com.example.easyplan.domain.entity.Heart.HeartResponseDto;
 import com.example.easyplan.domain.entity.Review.Review;
@@ -18,6 +19,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,7 +38,7 @@ public class HeartService {
     public HeartResponseDto getHeartStatus(Long userId, Long reviewId) {
         boolean isLiked = heartRepository.existsByUserIdAndReviewId(userId, reviewId);
         int heartCount = heartRepository.countByReviewId(reviewId);
-        return new HeartResponseDto(reviewId, userId, isLiked, heartCount);
+        return new HeartResponseDto(reviewId, isLiked, heartCount);
     }
 
     // 좋아요 수 가져오기 (리뷰 기준 캐싱)
@@ -92,32 +94,30 @@ public class HeartService {
 
 
     @Transactional
-    @CacheEvict(cacheNames = "likeCount", key = "'review:like:' + #reviewId", cacheManager = "likeCacheManager")
+    @CacheEvict(cacheNames = "likeCount", key = "'heart:count:' + #reviewId", cacheManager = "likeCacheManager")
     public HeartResponseDto toggleHeart(Long userId, Long reviewId) {
         User user = getUserById(userId);
         Review review = getReviewById(reviewId);
         boolean isLiked;
-        Heart heart;
 
         Optional<Heart> existingHeart = heartRepository.findByUserAndReview(user, review);
 
-        String redisCountKey = "heart:count:" + reviewId;
-        String redisUserKey = "heart:user:" + userId + ":hash";
-        String redisZsetKey = "heart:user:" + userId + ":zset";
-        String reviewField = "review:" + reviewId + ":zset";
+        String redisCountKey = RedisKeyUtil.heartCount(reviewId);
+        String redisUserKey = RedisKeyUtil.userHeartHash(userId);
+        String redisZsetKey = RedisKeyUtil.userHeartZSet(userId);
+        String reviewField = RedisKeyUtil.reviewFieldForZSet(reviewId);
 
         if (existingHeart.isPresent()) {
             heartRepository.delete(existingHeart.get());
 
             redisTemplate.opsForHash().delete(redisUserKey, reviewField);
             redisTemplate.opsForZSet().remove(redisZsetKey, reviewId);
-            redisTemplate.opsForValue().decrement(redisCountKey, reviewId);
+            redisTemplate.opsForValue().decrement(redisCountKey);
 
             isLiked = false;
-            heart = existingHeart.get();
             log.info("좋아요 취소 완료");
         } else {
-            heart = new Heart(user, review);
+            Heart heart = new Heart(user, review);
             heartRepository.save(heart);
 
             redisTemplate.opsForHash().put(redisUserKey, reviewField, true);
@@ -128,14 +128,14 @@ public class HeartService {
             log.info("좋아요 등록 완료");
         }
 
-        // Redis에 좋아요 수 캐싱되어 있으면 가져오고, 없으면 DB에서
+        // 캐시 존재 여부 확인 후 없으면 DB에서 조회
         Integer likeCount = (Integer) redisTemplate.opsForValue().get(redisCountKey);
         if (likeCount == null) {
             likeCount = heartRepository.countByReviewId(reviewId);
-            redisTemplate.opsForValue().set(redisCountKey, likeCount);
+            redisTemplate.opsForValue().set(redisCountKey, likeCount, Duration.ofHours(1));
         }
 
-        return HeartResponseDto.from(heart, isLiked, likeCount);
+        return new HeartResponseDto(reviewId, isLiked, (int)likeCount);
     }
 
     private User getUserById(Long userId) {

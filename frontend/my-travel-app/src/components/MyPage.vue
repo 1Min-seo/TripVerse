@@ -54,9 +54,6 @@
             </div>
           </div>
         </template>
-<!--        <template v-else>-->
-<!--          <p>작성한 글이 없습니다.</p>-->
-<!--        </template>-->
       </div>
 
       <!-- 페이지네이션 -->

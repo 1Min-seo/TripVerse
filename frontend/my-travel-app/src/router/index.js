@@ -5,6 +5,9 @@ import CreateReview from '../components/CreateReview.vue'
 import ReviewDetails from '../components/ReviewDetails.vue'
 import UpdateReview from '../components/UpdateReview.vue'
 import CreatePlan from '../components/CreatePlan.vue'
+import PopularPlans from '../components/PopularPlans.vue'
+import TravelTest from '../components/TravelTest.vue'
+import TravelTestQuestions from '../components/TravelTestQuestions.vue'
 
 import OAuth2Redirect from '../components/OAuth2Redirect.vue'
 import axios from 'axios'
@@ -47,7 +50,10 @@ const routes = [
     { path: '/reviews/new', name: 'CreateReview', component: CreateReview },
     { path: '/reviews/:reviewId', name: 'ReviewDetails', component: ReviewDetails},
     { path: '/reviews/edit/:reviewId', name: 'UpdateReview', component: UpdateReview},
-    { path: '/oauth2/redirect', name: 'OAuth2Redirect', component: OAuth2Redirect }
+    { path: '/oauth2/redirect', name: 'OAuth2Redirect', component: OAuth2Redirect },
+    //{ path: '/PopularPlan', name: 'popularPlan', component: popularPlan}
+    {path: '/travel/test', name: 'TravelTest', component: TravelTest},
+    {path: '/travel/test/questions', name: 'TravelTestQuestions', component: TravelTestQuestions}
 ]
 
 const router = createRouter({

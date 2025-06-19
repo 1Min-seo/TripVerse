@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .formLogin(form -> form.disable())
                 .httpBasic(basic -> basic.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login/**", "/oauth2/**","/css/**", "/js/**").permitAll()
+                        .requestMatchers("/", "/login/**", "/oauth2/**", "/css/**", "/js/**", "/api/reviews/likes/top", "api/reviews/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth -> oauth

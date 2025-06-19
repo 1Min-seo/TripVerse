@@ -13,42 +13,27 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f23d25f-c401-4b80-b77e-219c52d91993.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f23d25f-c401-4b80-b77e-219c52d91993/storage_v2/_src_/schema/tripverse.MNSD6Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/TripVerseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/TripVerseApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisCacheConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisCacheConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/config/RedisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/ReviewRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/ReviewRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/BaseEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/Heart.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/Heart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/HeartRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/controller/HeartRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/HeartResponseDto$HeartResponseDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/HeartResponseDto$HeartResponseDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/HeartResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Heart/HeartResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto$ReviewResponseDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto$ReviewResponseDtoBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/Review/ReviewResponseDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/domain/entity/User/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/repository/HeartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/repository/HeartRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/security/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/service/HeartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/easyplan/service/HeartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HeartService.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HeartRestController.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HeartService.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/assets/css/MyPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/assets/css/MyPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/components/MyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/components/MyPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-travel-app/src/components/ReviewDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-travel-app/src/components/ReviewDetails.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/TripVerseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/TripVerseApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisCacheConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/controller/HeartRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/Heart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/HeartResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/controller/HeartRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/controller/HeartRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/HeartResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Heart/HeartResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/ReviewResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/Review/ReviewResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/domain/entity/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/repository/HeartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/repository/HeartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/easyplan/service/HeartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/easyplan/service/HeartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,15 +76,16 @@
         <option value="JavaScript File" />
         <option value="Dockerfile" />
         <option value="Vue Options API Component" />
-        <option value="CSS File" />
-        <option value="Vue Composition API Component" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Vue Composition API Component" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend/my-travel-app" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -109,7 +95,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/1Min-seo/tripverse.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/1Min-seo/TripVerse.git&quot;,
     &quot;accountId&quot;: &quot;e213bb7c-01a2-4bcc-9a19-36f3252f8351&quot;
   }
 }</component>
@@ -406,7 +392,16 @@
       <workItem from="1749213042604" duration="12121000" />
       <workItem from="1749388791682" duration="3913000" />
       <workItem from="1749466026974" duration="3342000" />
-      <workItem from="1749704396631" duration="15080000" />
+      <workItem from="1749704396631" duration="16242000" />
+      <workItem from="1749806316542" duration="857000" />
+      <workItem from="1749903730490" duration="8399000" />
+      <workItem from="1749990596358" duration="8393000" />
+      <workItem from="1750074820191" duration="636000" />
+      <workItem from="1750087718715" duration="1975000" />
+      <workItem from="1750144485130" duration="4680000" />
+      <workItem from="1750225075973" duration="4493000" />
+      <workItem from="1750252683541" duration="6702000" />
+      <workItem from="1750299319332" duration="2085000" />
     </task>
     <servers />
   </component>

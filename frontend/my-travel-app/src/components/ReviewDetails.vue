@@ -116,11 +116,14 @@ const goBack = () => {
 
 const fetchReviewDetails = async () => {
   try {
+    console.log(1)
     const {data} = await axios.get(
         `http://localhost:8080/api/reviews/${reviewId}`,
-        { withCredentials: true }
+         { withCredentials: true }
     );
+    console.log(2)
     reviewDetails.value = data;
+    console.log(3)
     await nextTick();
   } catch (error) {
     console.error("리뷰 세부 정보를 가져오는 중 오류 발생:", error);
@@ -151,7 +154,7 @@ const toggleHeart = async () => {
     );
     heartDetails.value = data;
   } catch (error) {
-    console.error("하트 토글 중 오류 발생:", error);
+    console.error("하트 토글 중 오류 발생:", ㄱㅡerror);
   }
 };
 

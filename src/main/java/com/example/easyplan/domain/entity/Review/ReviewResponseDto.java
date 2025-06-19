@@ -1,6 +1,7 @@
 package com.example.easyplan.domain.entity.Review;
 
 import com.example.easyplan.domain.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

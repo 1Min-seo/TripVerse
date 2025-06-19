@@ -1,0 +1,415 @@
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-gray-800: #1f2937;
+    --text-gray-600: #4b5563;
+    --text-gray-500: #6b7280;
+    --text-gray-400: #9ca3af;
+    --bg-gray-100: #f3f4f6;
+    --bg-gray-200: #e5e7eb;
+    --border-gray-200: #e5e7eb;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-gray-100);
+    line-height: 1.6;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 컨테이너 및 레이아웃 */
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+}
+
+/* 헤더 */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: var(--text-gray-800);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-gray-600);
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+/* 프로그레스 바 */
+.progress-container {
+    margin-bottom: 2rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.progress-label {
+    font-size: 0.875rem;
+    color: var(--text-gray-500);
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    margin-top: 0.25rem;
+}
+
+.current-step {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.step-divider {
+    color: var(--text-gray-400);
+    margin: 0 0.25rem;
+}
+
+.total-steps {
+    color: var(--text-gray-400);
+}
+
+.progress-bar-container {
+    width: 66.666667%;
+    background-color: var(--bg-gray-200);
+    border-radius: 9999px;
+    height: 0.625rem;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    height: 0.625rem;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* 질문 카드 */
+.question-card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.question-card.fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.question-card.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.question-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-gray-800);
+    margin-bottom: 1.5rem;
+}
+
+/* 옵션 그리드 */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 옵션 카드 */
+.option-card {
+    border: 1px solid var(--border-gray-200);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.option-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.option-card.active {
+    border-color: var(--primary-color);
+    background-color: #eff6ff;
+}
+
+.option-card input[type="radio"] {
+    display: none;
+}
+
+.option-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.icon-container {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.icon-container i {
+    font-size: 1.25rem;
+}
+
+/* 아이콘 컨테이너 색상 */
+.nature { background-color: #dbeafe; }
+.nature i { color: var(--primary-color); }
+
+.city { background-color: #f3e8ff; }
+.city i { color: #8b5cf6; }
+
+.culture { background-color: #fef3c7; }
+.culture i { color: #f59e0b; }
+
+.relaxation { background-color: #d1fae5; }
+.relaxation i { color: #10b981; }
+
+.duration1 { background-color: #fecaca; }
+.duration1 i { color: #ef4444; }
+
+.duration2 { background-color: #fed7aa; }
+.duration2 i { color: #f97316; }
+
+.duration3 { background-color: #dbeafe; }
+.duration3 i { color: var(--primary-color); }
+
+.duration4 { background-color: #d1fae5; }
+.duration4 i { color: #10b981; }
+
+.transport1 { background-color: #dbeafe; }
+.transport1 i { color: var(--primary-color); }
+
+.transport2 { background-color: #fecaca; }
+.transport2 i { color: #ef4444; }
+
+.transport3 { background-color: #d1fae5; }
+.transport3 i { color: #10b981; }
+
+.transport4 { background-color: #f3e8ff; }
+.transport4 i { color: #8b5cf6; }
+
+.budget1 { background-color: #d1fae5; }
+.budget1 i { color: #10b981; }
+
+.budget2 { background-color: #dbeafe; }
+.budget2 i { color: var(--primary-color); }
+
+.budget3 { background-color: #f3e8ff; }
+.budget3 i { color: #8b5cf6; }
+
+.budget4 { background-color: #fef3c7; }
+.budget4 i { color: #f59e0b; }
+
+.destination1 { background-color: #fecaca; }
+.destination1 i { color: #ef4444; }
+
+.destination2 { background-color: #fef3c7; }
+.destination2 i { color: #f59e0b; }
+
+.destination3 { background-color: #dbeafe; }
+.destination3 i { color: var(--primary-color); }
+
+.destination4 { background-color: #d1fae5; }
+.destination4 i { color: #10b981; }
+
+/* 질문 6: 여행 인원 */
+.companion-solo { background-color: #dbeafe; } /* 첫 번째 질문 스타일과 유사하게 */
+.companion-solo i { color: var(--primary-color); }
+
+.companion-friends { background-color: #fef3c7; } /* 세 번째 질문 스타일과 유사하게 */
+.companion-friends i { color: #f59e0b; }
+
+.companion-family { background-color: #d1fae5; } /* 네 번째 질문 스타일과 유사하게 */
+.companion-family i { color: #10b981; }
+
+.companion-couple { background-color: #fecaca; } /* 두 번째 질문 스타일과 유사하게 */
+.companion-couple i { color: #ef4444; }
+
+/* 질문 7: 우선순위 */
+.priority-rest { background-color: #d1fae5; }
+.priority-rest i { color: #10b981; }
+
+.priority-food { background-color: #fed7aa; }
+.priority-food i { color: #f97316; }
+
+.priority-sightseeing { background-color: #dbeafe; }
+.priority-sightseeing i { color: var(--primary-color); }
+
+.priority-activity { background-color: #f3e8ff; }
+.priority-activity i { color: #8b5cf6; }
+
+/* 질문 8: 일정 강도 */
+.pace-relaxed { background-color: #d1fae5; }
+.pace-relaxed i { color: #10b981; }
+
+.pace-medium { background-color: #fef3c7; }
+.pace-medium i { color: #f59e0b; }
+
+.pace-tight { background-color: #fecaca; }
+.pace-tight i { color: #ef4444; }
+
+.option-text {
+    flex: 1;
+}
+
+.option-title {
+    font-weight: 500;
+    color: var(--text-gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.option-description {
+    font-size: 0.875rem;
+    color: var(--text-gray-600);
+}
+
+/* 버튼 */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--bg-gray-100);
+    color: var(--text-gray-600);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-gray-200);
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+/* 반응형 디자인 */
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 2.5rem 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: 1.875rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .question-title {
+        font-size: 1.125rem;
+    }
+
+    .progress-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+    }
+}
