@@ -70,7 +70,7 @@
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
-import noImage from '@/assets/images/no-img.jpg';
+import noImage from '@/assets/images/no-image.png';
 
 export default {
   setup() {

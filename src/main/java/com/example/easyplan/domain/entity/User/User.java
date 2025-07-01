@@ -3,6 +3,7 @@ package com.example.easyplan.domain.entity.User;
 import com.example.easyplan.domain.Role;
 
 import com.example.easyplan.domain.entity.Heart.Heart;
+import com.example.easyplan.domain.entity.Preference.TravelPreference;
 import com.example.easyplan.domain.entity.Review.Review;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -65,6 +66,9 @@ public class User implements UserDetails {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Heart> hearts = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<TravelPreference> preferences = new ArrayList<>();
 
     public User update(String name) {
         this.name = name;

@@ -23,11 +23,12 @@ public class ReviewResponseDto {
     private List<String> imageUrls;
     private String userName;
 
-    private LocalDateTime createdDate;
+    private String createdDate;
 
 
     //Review => ReviewResponseDto
     public static ReviewResponseDto from(Review review) {
+
         return new ReviewResponseDto(
                 review.getId(),
                 review.getTitle(),
@@ -35,9 +36,11 @@ public class ReviewResponseDto {
                 review.getRating(),
                 review.getImageUrls(),
                 review.getUser().getName(),
-                review.getCreatedDate()
+                review.getCreatedDate().toString()
         );
     }
+
+
 
 
 }

@@ -486,11 +486,12 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'TravelTestQuestions',
   data() {
     return {
-      isLoading: false, // ① 로딩 상태 추가
+      isLoading: false,
       currentStep: 1,
       totalSteps: 8,
       formData: {
@@ -512,11 +513,10 @@ export default {
   },
   methods: {
     nextStep() {
-      // 현재 스텝의 답변이 선택되었는지 확인
       const currentQuestionKey = Object.keys(this.formData)[this.currentStep - 1];
       if (!this.formData[currentQuestionKey]) {
-        alert('답변을 선택해주세요!'); // 경고창 표시
-        return; // 다음 스텝으로 진행하지 않음
+        alert('답변을 선택해주세요!');
+        return;
       }
 
       if (this.currentStep < this.totalSteps) {
@@ -530,23 +530,48 @@ export default {
       }
     },
     async submitForm() {
-      // 마지막 질문에 대한 답변이 선택되었는지 확인
       const lastQuestionKey = Object.keys(this.formData)[this.totalSteps - 1];
       if (!this.formData[lastQuestionKey]) {
         alert('답변을 선택해주세요!');
         return;
       }
 
-      this.isLoading = true; // 로딩 시작
+      this.isLoading = true;
       try {
         console.log('Form submitted:', this.formData);
-        // await axios.post('/api/plan', this.formData); // 실제 API 호출 시 주석 해제
-        await new Promise(r => setTimeout(r, 2000)); // 데모를 위한 2초 지연
-        alert('여행 플랜이 생성되었습니다!');
+
+        // 1. 사용자 선호도 데이터 저장 요청
+        // 이 요청이 성공해야 다음 요청으로 넘어갑니다.
+        const saveResponse = await axios.post(
+            `http://localhost:8080/api/travel-preferences`,
+            this.formData
+        );
+        console.log('선호도 저장 응답:', saveResponse.data);
+
+        await new Promise(r => setTimeout(r, 2000));
+        alert('여행 플랜을 생성 중입니다... 잠시만 기다려주세요!');
+
+        // 2. AI 추천 요청 (저장된 데이터를 기반으로)
+        // ⭐️ AI 추천 API에도 formData를 다시 보내야 합니다!
+        const recommendationResponse = await axios.post(
+            `http://localhost:8080/api/travel-preferences/recommendation`,
+            this.formData
+        );
+
+        const recommendation = recommendationResponse.data;
+        console.log("AI가 생성한 여행 플랜:", recommendation);
+        alert('여행 플랜이 성공적으로 생성되었습니다!');
+
+
       } catch (e) {
-        alert('오류가 발생했습니다.');
+        console.error('오류 발생:', e);
+        if (e.response && e.response.data) {
+          alert('오류가 발생했습니다: ' + (e.response.data.message || e.response.data));
+        } else {
+          alert('오류가 발생했습니다. 네트워크 연결을 확인해주세요.');
+        }
       } finally {
-        this.isLoading = false; // 로딩 종료
+        this.isLoading = false;
       }
     }
   }
