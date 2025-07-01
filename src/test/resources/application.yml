@@ -7,9 +7,51 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
-        show_sql: true
+        show_sql: false
         dialect: org.hibernate.dialect.MySQLDialect
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test_google_client_id_for_test
+            client-secret: test_google_client_secret_for_test
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - email
+              - profile
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+
+jwt:
+  secret: test_jwt_secret_for_test
+  token-validity-in-seconds: 86400
+
+cloud:
+  aws:
+    s3:
+      bucket: test-tripverse-uploaded-files
+    credentials:
+      access-key: test_aws_access_key_for_test
+      secret-key: test_aws_secret_key_for_test
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+
+gcp:
+  project-id: test_gcp_project_id_for_test
+  location: test_gcp_location_for_test
+  gemini-api-url: https://test.gemini.api.url_for_test
+
+  service-account-key-path: dummy/path/to/test-service-account.json
