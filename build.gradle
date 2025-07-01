@@ -65,6 +65,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux' // WebClient 포함
     implementation 'com.google.auth:google-auth-library-oauth2-http:1.22.0' // 구글 인증 라이브러리
 
+    //ec2 연결 테스트용 db (h2)
+    testImplementation 'com.h2database:h2'
 }
 
 tasks.named('test') {
