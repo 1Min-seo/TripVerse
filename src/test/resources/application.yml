@@ -1,5 +1,5 @@
 server:
-  port: 0  # 랜덤 포트 사용
+  port: 0
 
 spring:
   datasource:
@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create # create-drop에서 create로 변경
     properties:
       hibernate:
         format_sql: true
@@ -43,6 +43,13 @@ spring:
             token-uri: https://oauth2.googleapis.com/token
             user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      # password:
+
+
 jwt:
   secret: test_jwt_secret_for_test
   token-validity-in-seconds: 86400
@@ -65,4 +72,3 @@ gcp:
   location: us-central1
   gemini-api-url: https://test.gemini.api.url_for_test
   service-account-key-path: dummy/path/to/test-service-account.json
-

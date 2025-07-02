@@ -8,10 +8,7 @@ import org.springframework.test.context.TestPropertySource;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestPropertySource(properties = {
-        "spring.datasource.url=jdbc:h2:mem:testdb",
-        "spring.datasource.driver-class-name=org.h2.Driver",
-        "spring.datasource.username=sa",
-        "spring.datasource.password=",
+        "spring.jpa.hibernate.ddl-auto=create-drop",
         "jwt.secret=test_secret",
         "cloud.aws.credentials.access-key=test",
         "cloud.aws.credentials.secret-key=test",
