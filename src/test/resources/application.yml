@@ -64,5 +64,5 @@ gcp:
   project-id: test_gcp_project_id_for_test
   location: us-central1
   gemini-api-url: https://test.gemini.api.url_for_test
-  service-account-key-path: ""
+  service-account-key-path: dummy/path/to/test-service-account.json
 
