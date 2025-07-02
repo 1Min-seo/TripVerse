@@ -1,4 +1,16 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Node
 node_modules/
 dist/
 .env
-.DS_Store
