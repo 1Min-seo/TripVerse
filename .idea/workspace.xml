@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0d72d79-698f-46ea-8c17-8bfc641e07d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -387,7 +386,7 @@
       <workItem from="1751285928196" duration="3000" />
       <workItem from="1751348237461" duration="986000" />
       <workItem from="1751373743711" duration="4755000" />
-      <workItem from="1751453232519" duration="2683000" />
+      <workItem from="1751453232519" duration="3089000" />
     </task>
     <servers />
   </component>
