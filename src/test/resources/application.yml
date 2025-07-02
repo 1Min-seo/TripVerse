@@ -1,3 +1,6 @@
+server:
+  port: 0  # 랜덤 포트 사용
+
 spring:
   datasource:
     url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -14,6 +17,14 @@ spring:
         show_sql: false
         dialect: org.hibernate.dialect.MySQLDialect
 
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 50MB
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
 
   security:
     oauth2:
@@ -51,7 +62,7 @@ cloud:
 
 gcp:
   project-id: test_gcp_project_id_for_test
-  location: test_gcp_location_for_test
+  location: us-central1
   gemini-api-url: https://test.gemini.api.url_for_test
+  service-account-key-path: ""
 
-  service-account-key-path: dummy/path/to/test-service-account.json
