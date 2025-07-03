@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  config:
+    activate:
+      on-profile: '!test'
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tripverse
