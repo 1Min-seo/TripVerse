@@ -1,74 +1,74 @@
-server:
-  port: 0
-
-spring:
-  datasource:
-    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
-  jpa:
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        format_sql: true
-        show_sql: false
-        dialect: org.hibernate.dialect.MySQLDialect
-
-  servlet:
-    multipart:
-      max-file-size: 20MB
-      max-request-size: 50MB
-
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
-
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: test_google_client_id_for_test
-            client-secret: test_google_client_secret_for_test
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope:
-              - email
-              - profile
-        provider:
-          google:
-            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
-            token-uri: https://oauth2.googleapis.com/token
-            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-
-  data:
-    redis:
-      host: localhost
-      port: 6379
-      # password:
-
-
-jwt:
-  secret: test_jwt_secret_for_test
-  token-validity-in-seconds: 86400
-
-cloud:
-  aws:
-    s3:
-      bucket: test-tripverse-uploaded-files
-    credentials:
-      access-key: test_aws_access_key_for_test
-      secret-key: test_aws_secret_key_for_test
-    region:
-      static: ap-northeast-2
-      auto: false
-    stack:
-      auto: false
-
-gcp:
-  project-id: test_gcp_project_id_for_test
-  location: us-central1
-  gemini-api-url: https://test.gemini.api.url_for_test
-  service-account-key-path: dummy/path/to/test-service-account.json
+#server:
+#  port: 0
+#
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        show_sql: false
+#        dialect: org.hibernate.dialect.MySQLDialect
+#
+#  servlet:
+#    multipart:
+#      max-file-size: 20MB
+#      max-request-size: 50MB
+#
+#  jackson:
+#    serialization:
+#      write-dates-as-timestamps: false
+#
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: test_google_client_id_for_test
+#            client-secret: test_google_client_secret_for_test
+#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            scope:
+#              - email
+#              - profile
+#        provider:
+#          google:
+#            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+#            token-uri: https://oauth2.googleapis.com/token
+#            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+#
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+#      # password:
+#
+#
+#jwt:
+#  secret: test_jwt_secret_for_test
+#  token-validity-in-seconds: 86400
+#
+#cloud:
+#  aws:
+#    s3:
+#      bucket: test-tripverse-uploaded-files
+#    credentials:
+#      access-key: test_aws_access_key_for_test
+#      secret-key: test_aws_secret_key_for_test
+#    region:
+#      static: ap-northeast-2
+#      auto: false
+#    stack:
+#      auto: false
+#
+#gcp:
+#  project-id: test_gcp_project_id_for_test
+#  location: us-central1
+#  gemini-api-url: https://test.gemini.api.url_for_test
+#  service-account-key-path: dummy/path/to/test-service-account.json
