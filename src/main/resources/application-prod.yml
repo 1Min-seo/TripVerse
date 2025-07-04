@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            redirect-uri: "http://api.the-trip-verse.com:8080/login/oauth2/code/google"
