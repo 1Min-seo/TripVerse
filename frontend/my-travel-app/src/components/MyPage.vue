@@ -25,10 +25,71 @@
     </div>
 
     <main class="profile-section" style="margin-top: -290px">
-      <router-link to="/reviews/new" class="write-review-btn">글쓰기</router-link>
+      <router-link to="/reviews/new" class="write-review-btn" v-if="selectedMenu !== '여행 플래너'">글쓰기</router-link>
 
-      <!-- 리뷰 그리드 -->
-      <div class="items" id="reviews">
+      <!-- 여행 플래너 섹션 -->
+      <div v-if="selectedMenu === '여행 플래너'" class="travel-planner-section">
+        <div class="section-header">
+          <h2>🌍 내 여행 플래너</h2>
+          <p>나만의 여행 취향과 계획을 확인해보세요</p>
+        </div>
+
+        <div class="travel-cards" v-if="travelPreferences && travelPreferences.length > 0">
+          <div
+              v-for="(preference, index) in travelPreferences"
+              :key="index"
+              class="travel-preference-card"
+          >
+            <div class="card-header">
+              <div class="travel-icon">✈️</div>
+              <h3>여행 계획 {{ index + 1 }}</h3>
+            </div>
+
+            <div class="preference-details">
+              <div class="preference-item">
+                <div class="preference-label">
+                  <span class="icon">🎨</span>
+                  여행 스타일
+                </div>
+                <div class="preference-value">{{ preference.travelStyle }}</div>
+              </div>
+
+              <div class="preference-item">
+                <div class="preference-label">
+                  <span class="icon">📍</span>
+                  목적지 유형
+                </div>
+                <div class="preference-value">{{ preference.destinationType }}</div>
+              </div>
+
+              <div class="preference-item">
+                <div class="preference-label">
+                  <span class="icon">⏰</span>
+                  여행 기간
+                </div>
+                <div class="preference-value">{{ preference.travelDuration }}</div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button class="edit-btn">수정</button>
+              <button class="plan-btn">계획 세우기</button>
+            </div>
+          </div>
+        </div>
+
+        <div v-else class="no-travel-data">
+          <div class="empty-state">
+            <div class="empty-icon">🗺️</div>
+            <h3>아직 여행 계획이 없어요</h3>
+            <p>첫 번째 여행 계획을 세워보세요!</p>
+            <button class="create-plan-btn">여행 계획 만들기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 기존 리뷰 그리드 (여행 플래너가 아닐 때만 보임) -->
+      <div class="items" id="reviews" v-else>
         <template v-if="userReviews && userReviews.length > 0">
           <div
               v-for="(review, index) in userReviews"
@@ -56,8 +117,7 @@
         </template>
       </div>
 
-      <!-- 페이지네이션 -->
-      <div class="pagination">
+      <div class="pagination" v-if="selectedMenu !== '여행 플래너'">
         <button class="pagination-button" :disabled="currentPage === 0" @click="changePage('prev')">이전</button>
         <span>{{ currentPage + 1 }} / {{ totalPages || 1 }}</span>
         <button class="pagination-button" :disabled="currentPage >= totalPages - 1" @click="changePage('next')">다음</button>
@@ -82,6 +142,7 @@ export default {
     const selectedMenu = ref('작성한 글');
 
     const userReviews = ref([]);
+    const travelPreferences = ref([]); // 여행 플래너 데이터
     const currentPage = ref(0);
     const totalPages = ref(0);
     const searchTerm = ref('');
@@ -130,7 +191,8 @@ export default {
       } else if (selectedMenu.value === '스크랩한 글') {
         url = `http://localhost:8080/api/mypage/scrapped-reviews?page=${currentPage.value}&size=3`;
       } else if (selectedMenu.value === '여행 플래너') {
-        url = `http://localhost:8080/api/mypage/planners?page=${currentPage.value}&size=3`;
+        await fetchTravelPreferences();
+        return;
       }
 
       try {
@@ -170,6 +232,27 @@ export default {
       await Promise.all(requests);
     };
 
+    const fetchTravelPreferences = async () => {
+      try {
+        const url = `http://localhost:8080/api/mypage/travel-preference?page=${currentPage.value}`;
+        const response = await axios.get(url, { withCredentials: true });
+
+        travelPreferences.value = response.data || [];
+
+        for(const index in response.data) {
+          console.log(response.data[index].travelStyle)
+          console.log(response.data[index].destinationType)
+          console.log(response.data[index].travelDuration)
+        }
+
+        console.log('여행 플래너 데이터:', response.data[0]);
+      } catch (error) {
+        console.error('여행 플래너 데이터 불러오기 실패:', error);
+        travelPreferences.value = [];
+        totalPages.value = 1;
+      }
+    };
+
     const changePage = (direction) => {
       if (direction === 'prev' && currentPage.value > 0) {
         currentPage.value -= 1;
@@ -204,6 +287,7 @@ export default {
       userEmail,
       profileImage,
       userReviews,
+      travelPreferences,
       currentPage,
       totalPages,
       searchTerm,
@@ -220,3 +304,189 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.travel-planner-section {
+  width: 100%;
+  padding: 20px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.travel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.travel-preference-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.travel-preference-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.travel-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #343a40;
+  margin: 0;
+}
+
+.preference-details {
+  margin-bottom: 20px;
+}
+
+.preference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px 0;
+}
+
+.preference-item:not(:last-child) {
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.preference-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.preference-label .icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.preference-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  background: #f8f9fa;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.card-footer {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .plan-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: #ffffff;
+  color: #6c757d;
+}
+
+.edit-btn:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.plan-btn {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.plan-btn:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+/* 빈 상태 스타일 */
+.no-travel-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  color: #495057;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.create-plan-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.create-plan-btn:hover {
+  background: #0056b3;
+}
+</style>

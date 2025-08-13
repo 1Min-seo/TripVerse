@@ -1,8 +1,6 @@
 <template>
   <div class="app-container">
-    <!-- 메인 컨텐츠 -->
     <main class="main-content">
-      <!-- 시작 페이지 -->
       <section id="start-page" class="start-section">
         <div class="container">
           <div class="card-wrapper">
@@ -69,5 +67,4 @@ export default {
 </script>
 
 <style scoped>
-/* 별도의 CSS 파일로 분리할 스타일들 */
 </style>

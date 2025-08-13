@@ -79,7 +79,7 @@ public class HeartService {
                 .map(Long::parseLong)
                 .collect(Collectors.toList());
 
-        System.out.println("reviewIds의 갯수: "+ reviewIds.size());
+        System.out.println("reviewId의 갯수: "+ reviewIds.size());
         List<Review> reviews = reviewRepository.findAllById(reviewIds);
         Map<Long, Review> reviewMap = reviews.stream()
                 .collect(Collectors.toMap(Review::getId, r -> r));

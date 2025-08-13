@@ -18,4 +18,8 @@ public class RedisKeyUtil {
         return "review:" + reviewId + ":zset";
     }
 
+    public static String travelRecommendation(String preferenceHash) {
+        return "travel:recommendation:" + preferenceHash;
+    }
+
 }

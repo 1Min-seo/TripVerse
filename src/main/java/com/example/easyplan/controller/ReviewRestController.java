@@ -6,6 +6,7 @@ import com.example.easyplan.domain.entity.Review.ReviewRequestDto;
 import com.example.easyplan.domain.entity.Review.ReviewResponseDto;
 import com.example.easyplan.security.CustomOAuth2User;
 import com.example.easyplan.service.ReviewService;
+import com.example.easyplan.service.S3UploadService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
@@ -25,6 +27,7 @@ import java.util.*;
 @Slf4j
 public class ReviewRestController {
     private final ReviewService reviewService;
+    private final S3UploadService s3UploadService;
 
     @GetMapping("/api/mypage/reviews")
     public ResponseEntity<Page<ReviewResponseDto>> getMyReviews
@@ -63,6 +66,26 @@ public class ReviewRestController {
         Long userId = getUserId();
         reviewService.deleteReview(userId, reviewId);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/api/upload/image")
+    public ResponseEntity<Map<String, String>> uploadImage(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "File is empty"));
+        }
+
+        try {
+            String imageUrl = s3UploadService.uploadFile(file);
+            log.info("S3 Upload Success: " + imageUrl);
+
+            Map<String, String> response = new HashMap<>();
+            response.put("imageUrl", imageUrl);
+            return ResponseEntity.ok(response);
+
+        } catch (IOException e) {
+            log.error("Image upload failed", e);
+            return ResponseEntity.status(500).body(Map.of("error", "Image upload failed: " + e.getMessage()));
+        }
     }
 
     private Long getUserId(){

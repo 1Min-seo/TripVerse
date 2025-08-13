@@ -25,16 +25,13 @@ public class RedisCacheConfig {
     @Primary
     public CacheManager likeCacheManager(RedisConnectionFactory redisConnectionFactory) {
 
-        /* ❶ 커스텀 ObjectMapper—JavaTimeModule 등록 */
         ObjectMapper om = new ObjectMapper()
                 .registerModule(new JavaTimeModule())
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        /* ❷ 이 ObjectMapper로 GenericJackson2JsonRedisSerializer 생성 */
         GenericJackson2JsonRedisSerializer jsonSerializer =
                 new GenericJackson2JsonRedisSerializer(om);
 
-        /* ❸ key/value 직렬화 설정에 jsonSerializer 사용 */
         RedisCacheConfiguration redisCacheConfiguration =
                 RedisCacheConfiguration.defaultCacheConfig()
                         .serializeKeysWith(

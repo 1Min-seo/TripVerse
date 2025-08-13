@@ -14,6 +14,7 @@ import './assets/css/ReviewDetails.css'
 import './assets/css/CreatePlan.css'
 import './assets/css/TravelTest.css'
 import './assets/css/TravelTestQuestions.css'
+import './assets/css/TravelRecommendation.css'
 
 axios.defaults.withCredentials = true
 createApp(App)

@@ -487,6 +487,7 @@
 
 <script>
 import axios from 'axios';
+import router from "@/router/index.js";
 export default {
   name: 'TravelTestQuestions',
   data() {
@@ -506,6 +507,7 @@ export default {
       }
     }
   },
+
   computed: {
     progressPercentage() {
       return (this.currentStep / this.totalSteps) * 100;
@@ -540,28 +542,27 @@ export default {
       try {
         console.log('Form submitted:', this.formData);
 
-        // 1. 사용자 선호도 데이터 저장 요청
-        // 이 요청이 성공해야 다음 요청으로 넘어갑니다.
+        // 1. 선호도 저장
         const saveResponse = await axios.post(
             `http://localhost:8080/api/travel-preferences`,
             this.formData
         );
         console.log('선호도 저장 응답:', saveResponse.data);
 
-        await new Promise(r => setTimeout(r, 2000));
-        alert('여행 플랜을 생성 중입니다... 잠시만 기다려주세요!');
+        const preferenceId = saveResponse.data.preferenceId;
+        console.log('preferenceId: ' + preferenceId);
 
-        // 2. AI 추천 요청 (저장된 데이터를 기반으로)
-        // ⭐️ AI 추천 API에도 formData를 다시 보내야 합니다!
+        // 2. AI 추천 생성
         const recommendationResponse = await axios.post(
-            `http://localhost:8080/api/travel-preferences/recommendation`,
+            `http://localhost:8080/api/travel-preferences/${preferenceId}/recommendation`,
             this.formData
         );
 
-        const recommendation = recommendationResponse.data;
-        console.log("AI가 생성한 여행 플랜:", recommendation);
-        alert('여행 플랜이 성공적으로 생성되었습니다!');
+        console.log("AI 추천 생성 응답:", recommendationResponse.data);
 
+        // 3. 성공 메시지 및 페이지 이동
+        alert('여행 플랜이 성공적으로 생성되었습니다!');
+        await this.$router.push(`/travel-preference/${preferenceId}/recommendation`);
 
       } catch (e) {
         console.error('오류 발생:', e);

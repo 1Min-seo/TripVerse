@@ -42,8 +42,7 @@
                 </li>
               </ul>
             </div>
-            <!-- Glide arrows -->
-            <div class="glide__arrows custom-glide-arrows" data-glide-el="controls">
+            <div v-if="reviewDetails.imageUrls && reviewDetails.imageUrls.length > 1" class="glide__arrows custom-glide-arrows" data-glide-el="controls">
               <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
                 <i class="fas fa-chevron-left"></i>
               </button>
@@ -63,8 +62,8 @@
             <button @click="toggleHeart(reviewDetails.id)" class="like-button">
               <i :class="(heartDetails.isLiked ? 'fas' : 'far') + ' fa-heart text-red-500'"></i>
               <span :class="heartDetails.isLiked ? 'text-red-500' : 'text-gray-400'">
-  {{ heartDetails.heartCount }} 좋아요
-</span>
+                {{ heartDetails.heartCount }} 좋아요
+              </span>
             </button>
           </div>
 
@@ -79,7 +78,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeMount, nextTick } from 'vue';
+import { ref, onMounted, onBeforeMount, nextTick, watch } from 'vue';
 import axios from 'axios';
 import Glide from '@glidejs/glide';
 import { useRoute, useRouter } from 'vue-router';
@@ -109,6 +108,9 @@ const heartDetails = ref({
 
 const isScrapped = ref(false);
 
+// **isUser 상태를 true로 설정하여 수정/삭제 버튼이 보이도록 합니다.**
+const isUser = ref(true);
+
 
 const goBack = () => {
   router.go(-1);
@@ -116,15 +118,12 @@ const goBack = () => {
 
 const fetchReviewDetails = async () => {
   try {
-    console.log(1)
     const {data} = await axios.get(
         `http://localhost:8080/api/reviews/${reviewId}`,
-         { withCredentials: true }
+        { withCredentials: true }
     );
-    console.log(2)
     reviewDetails.value = data;
-    console.log(3)
-    await nextTick();
+
   } catch (error) {
     console.error("리뷰 세부 정보를 가져오는 중 오류 발생:", error);
   }
@@ -154,7 +153,7 @@ const toggleHeart = async () => {
     );
     heartDetails.value = data;
   } catch (error) {
-    console.error("하트 토글 중 오류 발생:", ㄱㅡerror);
+    console.error("하트 토글 중 오류 발생:", error);
   }
 };
 
@@ -190,15 +189,6 @@ const formatDate = (date) => {
   }
 };
 
-const isUser = (userName) => {
-  if (!userName) return "알수 없음";
-  return userName;
-}
-
-onBeforeMount(() => {
-  fetchReviewDetails();
-  fetchHeartDetails();
-});
 
 const initGlide = () => {
   if (reviewDetails.value.imageUrls && reviewDetails.value.imageUrls.length > 0) {
@@ -212,7 +202,20 @@ const initGlide = () => {
     });
   }
 };
+
+// reviewDetails.imageUrls의 변화를 감지하여 데이터 로드 후 Glide 초기화
+watch(() => reviewDetails.value.imageUrls, (newUrls) => {
+  if (newUrls && newUrls.length > 0) {
+    initGlide();
+  }
+}, { deep: true });
+
+// 컴포넌트 마운트 전에 데이터 로드
+onBeforeMount(() => {
+  fetchReviewDetails();
+  fetchHeartDetails();
+});
+
 </script>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">

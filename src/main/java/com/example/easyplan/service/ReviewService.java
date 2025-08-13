@@ -54,7 +54,18 @@ public class ReviewService {
         Review review = getReviewById(reviewId);
         validateReviewOwner(user, review);
 
-        review.updateReview(dto.getTitle(), dto.getContent(), dto.getRating(), dto.getPhotos());
+        List<String> oldUrls = review.getImageUrls();
+        List<String> newUrls = dto.getPhotos() != null ? dto.getPhotos() : new ArrayList<>();
+
+        List<String> urlsToDelete = oldUrls.stream()
+                        .filter(url -> !newUrls.contains(url))
+                        .collect(Collectors.toList());
+
+        if(!urlsToDelete.isEmpty()) {
+            s3UploadService.deleteFileFromUrls(urlsToDelete);
+        }
+
+        review.updateReview(dto.getTitle(), dto.getContent(), dto.getRating(), newUrls);
     }
 
     @Transactional
@@ -67,7 +78,7 @@ public class ReviewService {
         log.info("Review delete: userId={}, reviewId{}", userId, reviewId);
     }
 
-    //View all reviews of a particular user
+
     public Page<ReviewResponseDto> getReviews(Long userId, Pageable pageable) {
         getUserById(userId);
 

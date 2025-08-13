@@ -37,6 +37,12 @@ public class TravelPreference extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String aiRecommendation;
+
+    private Boolean isBookmarked = false;
+
     private TravelPreference(User user, String travelStyle, String travelDuration, String transportation,
                              String budget, String destinationType, String companion,
                              String priority, String dailyPace) {
@@ -59,6 +65,23 @@ public class TravelPreference extends BaseEntity {
         return new TravelPreference(user, travelStyle, travelDuration, transportation, budget, destinationType, companion,
                 priority, dailyPace);
 
+    }
+
+    public void saveRecommendation(String recommendation) {
+        this.aiRecommendation = recommendation;
+    }
+
+    public boolean hasRecommendation() {
+        return this.aiRecommendation != null;
+    }
+
+    public void toggleBookmarked() {
+        this.isBookmarked = !this.isBookmarked;
+    }
+
+    public String generatePreferenceHash() {
+        return String.valueOf((travelStyle + travelDuration + transportation + budget +
+                destinationType + companion + priority + dailyPace).hashCode());
     }
 
     private static void validatePreferenceFields(String travelStyle, String travelDuration, String transportation,

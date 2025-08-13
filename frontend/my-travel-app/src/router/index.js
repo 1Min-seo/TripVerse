@@ -8,6 +8,7 @@ import CreatePlan from '../components/CreatePlan.vue'
 import PopularPlans from '../components/PopularPlans.vue'
 import TravelTest from '../components/TravelTest.vue'
 import TravelTestQuestions from '../components/TravelTestQuestions.vue'
+import TravelRecommendation from '../components/TravelRecommendation.vue'
 
 import OAuth2Redirect from '../components/OAuth2Redirect.vue'
 import axios from 'axios'
@@ -53,7 +54,8 @@ const routes = [
     { path: '/oauth2/redirect', name: 'OAuth2Redirect', component: OAuth2Redirect },
     //{ path: '/PopularPlan', name: 'popularPlan', component: popularPlan}
     {path: '/travel/test', name: 'TravelTest', component: TravelTest},
-    {path: '/travel/test/questions', name: 'TravelTestQuestions', component: TravelTestQuestions}
+    {path: '/travel/test/questions', name: 'TravelTestQuestions', component: TravelTestQuestions},
+    { path: '/travel-preference/:preferenceId/recommendation', name: 'TravelRecommendation', component: TravelRecommendation }
 ]
 
 const router = createRouter({

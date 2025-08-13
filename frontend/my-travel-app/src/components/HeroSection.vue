@@ -1,15 +1,24 @@
 <template>
   <section class="hero-section">
+    <!-- 비디오 배경 - hero-section 전체에 적용 -->
+    <video autoplay muted loop playsinline class="text-video-bg">
+      <source src="@/assets/images/index_video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="hero-title">나만의 여행 계획을 만들어보세요</h1>
-        <p class="hero-description">
-          트래블러스의 다양한 기능으로 쉽고 빠르게 여행 계획을 세워보세요.
-        </p>
-        <router-link to="/createPlan" class="hero-button">지금 시작하기</router-link>
+        <div class="text-foreground">
+          <h1 class="hero-title">나만의 여행 계획을 만들어보세요</h1>
+          <p class="hero-description">
+            트래블러스의 다양한 기능으로 쉽고 빠르게 여행 계획을 세워보세요.
+          </p>
+          <router-link to="/createPlan" class="hero-button">지금 시작하기</router-link>
+        </div>
       </div>
+
       <div class="hero-image-wrapper">
-<!--        <img class="hero-image" src="@/assets/hero-image.jpeg" alt="여행 아이템" />-->
+        <!-- <img class="hero-image" src="@/assets/hero-image.jpeg" alt="여행 아이템" /> -->
       </div>
     </div>
   </section>
@@ -43,7 +52,7 @@ const logout = () => {
   document.cookie = "accessToken=; max-age=0; path=/";
 
   // 서버로 로그아웃 요청
-  axios.post("http://localhost:8080/api/logout", {}, { withCredentials: true })
+  axios.post("http://localhost:8080/api/logout", {}, {withCredentials: true})
       .then(() => {
         // 로그아웃 후 페이지 새로 고침
         name.value = null;

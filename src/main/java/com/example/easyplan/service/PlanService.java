@@ -22,26 +22,43 @@ public class PlanService {
     public Long createPlan(Long userId, PlanRequestDto planRequestDto) {
         User user = getUserById(userId);
         Plan plan = Plan.createPlan(planRequestDto.getTitle(), planRequestDto.getStartDate(), planRequestDto.getEndDate(), user);
-        System.out.print(plan.getTitle() + plan.getStartDate() + plan.getEndDate());
+
+        System.out.println("Plan 생성: " + plan.getTitle() + ", " + plan.getStartDate() + ", " + plan.getEndDate());
+
         for(PlanRequestDto.PlanDayDto dayDto: planRequestDto.getDays()) {
-            PlanDay day = new PlanDay();
-            day.setDate(dayDto.getDate());
+            PlanDay day = PlanDay.createPlanDay(dayDto.getDate());  // static 메서드 사용
+
+            System.out.println("Day 생성: " + day.getDate() + ", Places 수: " + dayDto.getPlaces().size());
 
             for(PlanRequestDto.PlanPlaceDto placeDto : dayDto.getPlaces()) {
-                PlanPlace place = new PlanPlace();
-                place.setName(placeDto.getName());
-                place.setTime(placeDto.getTime());
-                place.setMemo(placeDto.getMemo());
-                place.setLatitude(placeDto.getLatitude());
-                place.setLongitude(placeDto.getLongitude());
-                place.setPlaceOrder(placeDto.getPlaceOrder());
+                // 빈 장소 이름 필터링
+                if(placeDto.getName() == null || placeDto.getName().trim().isEmpty()) {
+                    System.out.println("빈 장소 이름 건너뛰기");
+                    continue;
+                }
 
+                PlanPlace place = PlanPlace.createPlanPlace(
+                        placeDto.getName().trim(),
+                        placeDto.getTime(),
+                        placeDto.getMemo(),
+                        placeDto.getPlaceOrder(),
+                        placeDto.getLatitude(),
+                        placeDto.getLongitude()
+                );
+
+                System.out.println("Place 생성: " + place.getName());
                 day.addPlace(place);
             }
+
             plan.addDay(day);
         }
-        planRepository.save(plan);
-        return plan.getId();
+
+        Plan savedPlan = planRepository.save(plan);
+
+        System.out.println("Plan 저장 완료. ID: " + savedPlan.getId());
+        System.out.println("Plan 저장 완료. title: " + savedPlan.getTitle());
+
+        return savedPlan.getId();
     }
 
     @Transactional
@@ -55,24 +72,27 @@ public class PlanService {
         plan.getDays().clear();
 
         for (PlanRequestDto.PlanDayDto dayDto : planRequestDto.getDays()) {
-            PlanDay day = new PlanDay();
-            day.setDate(dayDto.getDate());
+            PlanDay day = PlanDay.createPlanDay(dayDto.getDate());
 
             for (PlanRequestDto.PlanPlaceDto placeDto : dayDto.getPlaces()) {
-                PlanPlace place = new PlanPlace();
-                place.setName(placeDto.getName());
-                place.setTime(placeDto.getTime());
-                place.setMemo(placeDto.getMemo());
-                place.setLatitude(placeDto.getLatitude());
-                place.setLongitude(placeDto.getLongitude());
-                place.setPlaceOrder(placeDto.getPlaceOrder());
+                if(placeDto.getName() == null || placeDto.getName().trim().isEmpty()) {
+                    continue;
+                }
+
+                PlanPlace place = PlanPlace.createPlanPlace(
+                        placeDto.getName().trim(),
+                        placeDto.getTime(),
+                        placeDto.getMemo(),
+                        placeDto.getPlaceOrder(),
+                        placeDto.getLatitude(),
+                        placeDto.getLongitude()
+                );
 
                 day.addPlace(place);
             }
 
             plan.addDay(day);
         }
-
     }
 
     @Transactional
@@ -88,7 +108,7 @@ public class PlanService {
         return planRepository.findById(planId)
                 .orElseThrow(() -> new IllegalArgumentException("Plan not found"));
     }
-    
+
     private User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));

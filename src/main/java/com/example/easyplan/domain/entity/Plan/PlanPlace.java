@@ -10,8 +10,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@RequiredArgsConstructor
-@Getter @Setter
+@NoArgsConstructor  // 추가!
+@Getter
+@Setter
 public class PlanPlace {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,9 +20,7 @@ public class PlanPlace {
     private String name;
     private LocalTime time;
     private String memo;
-
     private int placeOrder;
-
     private double latitude;
     private double longitude;
 
@@ -38,13 +37,12 @@ public class PlanPlace {
         planPlace.setPlaceOrder(placeOrder);
         planPlace.setLatitude(latitude);
         planPlace.setLongitude(longitude);
-        
         return planPlace;
     }
 
     private static void validateName(String name) {
-        throw new IllegalArgumentException("장소를 적어주세요.");
+        if (name == null || name.trim().isEmpty()) {  // trim() 추가
+            throw new IllegalArgumentException("장소를 적어주세요.");
+        }
     }
-
-
 }

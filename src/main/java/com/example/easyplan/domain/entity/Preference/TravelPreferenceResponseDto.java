@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class TravelPreferenceResponseDto{
 
+    private Long preferenceId;
     private String travelStyle;
     private String travelDuration;
     private String transportation;
@@ -20,10 +21,13 @@ public class TravelPreferenceResponseDto{
     private String companion;
     private String priority;
     private String dailyPace;
+    private String aiRecommendation;
+    private Boolean isBookmarked;
 
     //엔티티 -> dto
     public static TravelPreferenceResponseDto from(TravelPreference travelPreference) {
         return new TravelPreferenceResponseDto(
+                travelPreference.getId(),
                 travelPreference.getTravelStyle(),
                 travelPreference.getTravelDuration(),
                 travelPreference.getTransportation(),
@@ -31,7 +35,9 @@ public class TravelPreferenceResponseDto{
                 travelPreference.getDestinationType(),
                 travelPreference.getCompanion(),
                 travelPreference.getPriority(),
-                travelPreference.getDailyPace()
+                travelPreference.getDailyPace(),
+                travelPreference.getAiRecommendation(),
+                travelPreference.getIsBookmarked()
         );
     }
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@RequiredArgsConstructor
+@NoArgsConstructor  // 추가!
 @Getter
 @Setter
 public class PlanDay {
@@ -50,6 +50,4 @@ public class PlanDay {
             throw new IllegalArgumentException("date cannot be null");
         }
     }
-
-
 }

@@ -11,7 +11,6 @@
     <p>총 여행 기간: {{ days.length }}일</p>
 
     <div class="main-grid">
-      <!-- 왼쪽: 일정 입력 -->
       <div class="days-section">
         <div v-for="(day, dayIdx) in days" :key="dayIdx" class="day-box">
           <h3>Day {{ dayIdx + 1 }} ({{ day.date }})</h3>
@@ -49,7 +48,6 @@
         </div>
       </div>
     </div>
-    <!-- 좌우 구조 끝 -->
 
     <button @click="saveTrip">여행 일정 저장하기</button>
   </div>
@@ -57,6 +55,7 @@
 <script>
 import { ref, onMounted, watch, nextTick, computed } from 'vue'
 import axios from 'axios'
+import router from "@/router/index.js";
 
 export default {
   setup() {
@@ -99,7 +98,6 @@ export default {
 
     function removePlace(dayIdx, placeIdx) {
       days.value[dayIdx].places.splice(placeIdx, 1)
-      // 삭제 후 placeOrder 재정렬
       days.value[dayIdx].places.forEach((place, idx) => {
         place.placeOrder = idx
       })
@@ -160,32 +158,39 @@ export default {
 
     function saveTrip() {
       const requestBody = {
-        title: tripName.value, // name -> title로 변경
+        title: tripName.value,
         startDate: startDate.value,
         endDate: endDate.value,
         days: days.value.map(day => ({
           date: day.date,
-          places: day.places.map((place, idx) => ({
-            name: place.name,
-            time: place.time,
-            memo: place.memo,
-            latitude: place.latitude || 0,
-            longitude: place.longitude || 0,
-            placeOrder: place.placeOrder || idx
-          }))
+          places: day.places
+              .filter(place => place.name && place.name.trim() !== '')
+              .map((place, idx) => ({
+                name: place.name.trim(),
+                time: place.time || null,
+                memo: place.memo || '',
+                latitude: place.latitude || 0,
+                longitude: place.longitude || 0,
+                placeOrder: idx
+              }))
         }))
       }
 
+      console.log('전송할 데이터:', JSON.stringify(requestBody, null, 2))
+
       axios.post('http://localhost:8080/api/plans', requestBody, {withCredentials: true})
           .then(response => {
+            console.log('저장 성공:', response.data)
             alert('여행이 저장되었습니다!')
+            router.push('/MyPage');
           })
           .catch(error => {
-            console.log('저장 중 오류 발생:', error)
-            console.log('요청 데이터:', JSON.stringify(requestBody))
+            console.error('저장 중 오류 발생:', error)
+            console.error('에러 응답:', error.response?.data)
             alert('저장에 실패했습니다: ' + (error.response?.data?.message || error.message))
           })
     }
+
 
     onMounted(() => {
       updateDays()
