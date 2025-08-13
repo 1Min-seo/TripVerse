@@ -10,21 +10,18 @@ TripVerse
 </div>
 
 📷 주요 화면 캡쳐
-메인 화면
-
-내 여행 플래너
-
+<img width="1704" height="886" alt="스크린샷 2025-08-13 오후 4 52 44" src="https://github.com/user-attachments/assets/dbe8ab17-42e7-4fdd-be29-f2a7537ee3f7" />
+<img width="1098" height="322" alt="스크린샷 2025-08-13 오후 4 59 24" src="https://github.com/user-attachments/assets/cea48dfe-5bf3-44e7-b2f8-9336e85f75cd" />
 
 
+<img width="1699" height="966" alt="스크린샷 2025-08-13 오후 4 56 23" src="https://github.com/user-attachments/assets/06621576-a3c4-4657-95e2-b381a2d0f8fa" />
+
+<img width="1694" height="878" alt="스크린샷 2025-08-13 오후 4 57 52" src="https://github.com/user-attachments/assets/9cff3be6-32b0-4a0e-8921-0253c26fef9a" />
+
+<img width="981" height="588" alt="스크린샷 2025-08-13 오후 4 58 33" src="https://github.com/user-attachments/assets/5d1f62c1-29b0-484d-a4e5-e37b2086c518" />
 
 
-여행 팀
-
-AI 플래너
-
-
-
-
+<img width="1581" height="701" alt="스크린샷 2025-08-13 오후 4 55 55" src="https://github.com/user-attachments/assets/de8ab99d-9826-4c5c-a9a5-b0589ad72d5b" />
 
 💻 기술 스택
 <br>
