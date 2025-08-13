@@ -21,6 +21,14 @@ TripVerse
 <img src="https://img.shields.io/badge/vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
 </p>
 
+기능
+- oauth2, jwt를 이용한 소셜 로그인
+- redis로 게시글 좋아요 기능 구현
+- gemini AI를 이용한 맞춤형 여행 플랜
+- 여행 플래너 공유 기능
+- AWS 배포
+
+  
 📷 주요 화면 캡쳐
 <img width="1704" height="886" alt="스크린샷 2025-08-13 오후 4 52 44" src="https://github.com/user-attachments/assets/dbe8ab17-42e7-4fdd-be29-f2a7537ee3f7" />
 
