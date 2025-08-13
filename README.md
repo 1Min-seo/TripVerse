@@ -21,13 +21,29 @@ TripVerse
 <img src="https://img.shields.io/badge/vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
 </p>
 
-기능
-- oauth2, jwt를 이용한 소셜 로그인
-- redis로 게시글 좋아요 기능 구현
-- gemini AI를 이용한 맞춤형 여행 플랜
-- 여행 플래너 공유 기능
-- AWS 배포
+## ✈️ 프로젝트 소개
 
+맞춤형 여행 플랜을 AI와 함께 쉽고 빠르게 구성하고, 친구들과 공유할 수 있는 여행 플래너 웹/앱 서비스입니다.
+
+---
+
+## 🔥 주요 기능
+
+- **OAuth2 & JWT 기반 소셜 로그인**  
+  다양한 SNS 계정으로 간편하고 안전하게 로그인
+
+- **Redis를 활용한 게시글 좋아요 기능**  
+  빠른 데이터 처리와 효율적인 좋아요 상태 관리
+
+- **Gemini AI 연동 맞춤형 여행 플랜 추천**  
+  AI 분석을 통해 개인 취향에 딱 맞는 여행 일정 생성
+
+- **여행 플래너 공유 기능**  
+  나만의 여행 계획을 다른 사용자와 쉽게 공유 및 협업 가능
+
+- **AWS 배포 및 운영**  
+  안정적이고 확장성 있는 클라우드 환경에서 서비스 제공
+  
   
 📷 주요 화면 캡쳐
 <img width="1704" height="886" alt="스크린샷 2025-08-13 오후 4 52 44" src="https://github.com/user-attachments/assets/dbe8ab17-42e7-4fdd-be29-f2a7537ee3f7" />
